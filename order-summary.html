@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Summary | Freshella Market Place</title>
+  <meta name="description" content="Review your order details, confirm your household goods purchase, and proceed to secure payment at Freshella Market Place.">
+  <meta name="keywords" content="order summary, checkout, Freshella Market Place, household goods, Palawan">
+  <meta name="author" content="Freshella Market Place">
+  <link rel="icon" type="image/png" href="image/FAVICON.png">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Nunito:400,700|Quicksand:400,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #516e33;
+      --secondary: #f8f6ed;
+      --accent: #d8b089;
+      --dark-green: #344d27;
+      --soft-green: #b9c8a2;
+      --text: #353d1d;
+      --card-bg: #fff;
+      --footer-bg: #e7e6dc;
+      --heading: #516e33;
+      --box-shadow: 0 2px 8px rgba(80, 105, 51, .08);
+      --success: #33a867;
+      --danger: #d44c3d;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Quicksand', 'Nunito', Arial, sans-serif;
+      background: var(--secondary);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    header {
+      background: var(--secondary);
+      padding: 2.3rem 0 1rem 0;
+      text-align: center;
+      border-bottom: 2px solid var(--soft-green);
+      box-shadow: var(--box-shadow);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+      transition: box-shadow 0.2s;
+    }
+    .logo-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    .logo-img {
+      width: 110px;
+      height: 110px;
+      display: block;
+      margin: 0 auto 0.7rem auto;
+      border-radius: 18px;
+      box-shadow: 0 2px 16px rgba(80,105,51,0.10);
+      background: #fff;
+      padding: 0.4rem;
+      object-fit: contain;
+    }
+    .logo-text {
+      font-family: 'Quicksand', Arial, sans-serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--heading);
+      letter-spacing: 2px;
+      margin-bottom: 0.1rem;
+    }
+    .logo-sub {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: var(--dark-green);
+      margin-bottom: 0.3rem;
+    }
+    nav {
+      margin-top: 0.8rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    nav a {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      color: var(--heading);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color .15s;
+      padding-bottom: 1px;
+      border-bottom: 2px solid transparent;
+    }
+    nav a:hover {
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+    }
+    .container {
+      max-width: 650px;
+      margin: 2.5rem auto;
+      background: var(--card-bg);
+      padding: 2.2rem 1.2rem;
+      border-radius: 16px;
+      box-shadow: var(--box-shadow);
+    }
+    h1 {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--heading);
+      text-align: center;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+    }
+    .step-indicator {
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+    }
+    .step {
+      padding: 0.2rem 1rem;
+      border-radius: 7px;
+      background: var(--soft-green);
+      color: var(--heading);
+      font-weight: 700;
+      font-size: 1.04rem;
+      opacity: 0.75;
+    }
+    .step.active {
+      background: var(--accent);
+      color: var(--primary);
+      opacity: 1;
+    }
+    .summary-section {
+      background: var(--secondary);
+      border-radius: 12px;
+      padding: 1.5rem 1rem;
+      box-shadow: 0 2px 8px rgba(80, 105, 51, .07);
+      margin-bottom: 2rem;
+    }
+    .summary-section h2 {
+      font-family: 'Montserrat', Arial, sans-serif;
+      color: var(--heading);
+      font-size: 1.18rem;
+      margin-bottom: .7rem;
+      letter-spacing: 1px;
+    }
+    .order-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.2rem 0;
+    }
+    .order-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e2e2e2;
+      padding: .55rem 0;
+      font-size: .98rem;
+    }
+    .order-list li:last-child {
+      border-bottom: none;
+    }
+    .order-summary-meta {
+      font-size: 1.06rem;
+      color: var(--primary);
+      font-weight: 700;
+      margin-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+    }
+    .customer-section {
+      margin: 2rem 0 1.5rem 0;
+      background: var(--soft-green);
+      border-radius: 9px;
+      padding: 1.3rem 1rem;
+    }
+    .customer-section h2 {
+      font-size: 1.07rem;
+      color: var(--primary);
+      margin-bottom: .5rem;
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+    .customer-section p {
+      font-size: .99rem;
+      margin-bottom: .35rem;
+      color: var(--text);
+    }
+    .customer-form label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: .2rem;
+      color: var(--heading);
+    }
+    .customer-form input,
+    .customer-form select,
+    .customer-form textarea {
+      width: 100%;
+      padding: .45rem .7rem;
+      margin-bottom: 1rem;
+      border: 1px solid var(--soft-green);
+      border-radius: 7px;
+      font-size: 1rem;
+      font-family: 'Nunito', Arial, sans-serif;
+      background: #faf9f6;
+      color: var(--text);
+      resize: vertical;
+    }
+    .customer-form input:focus,
+    .customer-form select:focus,
+    .customer-form textarea:focus {
+      outline: 2px solid var(--primary);
+      border-color: var(--primary);
+    }
+    .customer-form button {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      padding: .7rem 1.7rem;
+      font-size: 1.07rem;
+      cursor: pointer;
+      transition: background .17s;
+      margin-top: .2rem;
+      display: block;
+      width: 100%;
+    }
+    .customer-form button:hover {
+      background: var(--dark-green);
+    }
+    .confirmation-section {
+      background: var(--success);
+      color: #fff;
+      border-radius: 12px;
+      padding: 1.3rem 1rem;
+      font-size: 1.08rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      margin-top: 2rem;
+      box-shadow: 0 2px 8px rgba(51,168,103,.07);
+      display: none;
+      animation: fadein .9s;
+    }
+    @keyframes fadein {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .confirmation-section strong {
+      font-size: 1.15rem;
+      display: block;
+      margin-bottom: .7rem;
+    }
+    .payment-instructions {
+      background: var(--accent);
+      color: var(--dark-green);
+      border-radius: 9px;
+      padding: 1.1rem 1rem;
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+      font-size: 1.04rem;
+      text-align: center;
+      display: none;
+      animation: fadein .9s;
+    }
+    .payment-instructions strong {
+      font-size: 1.13rem;
+      margin-bottom: .5rem;
+      display: block;
+      color: var(--primary);
+    }
+    .important-note {
+      margin-top: 1.5rem;
+      color: var(--danger);
+      font-weight: bold;
+      font-size: 1rem;
+      text-align: center;
+    }
+    @media (max-width: 800px) {
+      .container { max-width: 97vw; padding: 1.1rem .1rem;}
+      h1 { font-size: 1.2rem; }
+      .summary-section, .customer-section, .confirmation-section, .payment-instructions { padding: 1.1rem .5rem;}
+    }
+    @media (max-width: 600px) {
+      .container { padding: 0.2rem 0.1rem; }
+      nav { gap: 1.2rem; }
+      .logo-img { width: 62px; height: 62px; }
+      h1 { font-size: 1rem; }
+      .step-indicator { font-size: .93rem; }
+    }
+    footer {
+      background: var(--footer-bg);
+      padding: 2.2rem 0 1.2rem 0;
+      text-align: center;
+      font-size: .96rem;
+      color: #444;
+      margin-top: 3rem;
+      border-top: 2px solid var(--soft-green);
+      font-family: 'Quicksand', Arial, sans-serif;
+    }
+    .footer-links {
+      margin-bottom: 1.1rem;
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: var(--heading);
+      text-decoration: none;
+      font-weight: 700;
+      transition: color .2s;
+    }
+    .footer-links a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+    .footer-meta {
+      font-size: .94rem;
+      margin-top: .8rem;
+      color: #333;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-wrapper">
+      <img src="image/LOGO.png" alt="Freshella Market Place Logo" class="logo-img" />
+      <div class="logo-text">FRESHELLA</div>
+      <div class="logo-sub">MARKET PLACE</div>
+    </div>
+    <nav>
+      <a href="index.html#home">Home</a>
+      <a href="index.html#about">About Us</a>
+      <a href="index.html#products">Products</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+  </header>
+  <main class="container">
+    <h1>Order Summary & Confirmation</h1>
+    <div class="step-indicator">
+      <span class="step">Cart</span>
+      <span class="step">Details</span>
+      <span class="step active">Summary</span>
+      <span class="step">Payment</span>
+    </div>
+    <section class="summary-section">
+      <h2>Review Your Selected Items</h2>
+      <ul class="order-list" id="order-list">
+        <li><span>Plastic Container Set x2</span><span>₱258.00</span></li>
+        <li><span>Dishwashing Liquid 500ml x1</span><span>₱59.00</span></li>
+        <li><span>Laundry Basket Large x1</span><span>₱149.00</span></li>
+      </ul>
+      <div class="order-summary-meta">
+        <span>Estimated Total</span>
+        <span id="order-total">₱466.00</span>
+      </div>
+    </section>
+    <section class="customer-section" id="customer-section">
+      <h2>Your Contact & Delivery Information</h2>
+      <p>To help us process your order efficiently, please review and confirm your details below.</p>
+      <form class="customer-form" id="customer-form">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" required autocomplete="name">
+
+        <label for="phone">Mobile Number</label>
+        <input type="tel" id="phone" name="phone" required autocomplete="tel">
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required autocomplete="email">
+
+        <label for="address">Delivery Address</label>
+        <textarea id="address" name="address" rows="2" required autocomplete="street-address"></textarea>
+
+        <label for="payment">Preferred Payment Method</label>
+        <select id="payment" name="payment" required>
+          <option value="">-- Please Select --</option>
+          <option value="gcash">GCash</option>
+          <option value="maya">Maya</option>
+          <option value="bank">Bank Transfer</option>
+          <option value="card">Card Payment</option>
+          <option value="cod">Cash on Delivery (Pickup only)</option>
+        </select>
+
+        <label for="notes">Order Notes (e.g., preferred colors, delivery instructions)</label>
+        <textarea id="notes" name="notes" rows="2"></textarea>
+
+        <button type="submit" id="submit-btn">Submit Order</button>
+      </form>
+    </section>
+    <section class="confirmation-section" id="confirmation-section">
+      <strong>Thank you for your order!</strong>
+      <div>
+        Your request has been received. A member of our team will contact you soon to confirm product details, colors, and availability.<br>
+        Please review and verify all order specifics during this call to ensure everything is accurate.<br>
+        Once confirmed, you’ll receive a secure payment link via your chosen method.<br>
+        <br>
+        <span style="font-weight: bold;">Please complete your payment within 24 hours to avoid automatic cancellation.</span>
+      </div>
+    </section>
+    <section class="payment-instructions" id="payment-instructions">
+      <strong>Payment Instructions</strong>
+      <div>
+        Your payment link will be sent to you after you confirm your order details with our staff. To keep your reservation, please proceed with payment within 24 hours.<br>
+        <br>
+        Need help? Contact us at <a href="mailto:contact@freshellamarketplace.com" style="color:var(--primary);text-decoration:underline;">contact@freshellamarketplace.com</a>
+      </div>
+      <div class="important-note">
+        Unpaid orders will be cancelled automatically after 24 hours.
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-links">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="refund-policy.html">Refund Policy</a>
+    </div>
+    <div class="footer-meta">
+      <strong>Freshella Market Place</strong> &mdash; Household Goods Retailer<br>
+      #25 Ilang-Ilang Street, Barangay Maunlad, Puerto Princesa City, Palawan, 5300, Philippines<br>
+      Phone: +63 927 564 8319 &nbsp;|&nbsp; Email: contact@freshellamarketplace.com<br>
+      Business Hours: Monday to Saturday, 8:00 AM – 6:00 PM<br>
+      DTI Cert. No. 091547386 &nbsp;&nbsp; VAT Reg. TIN: 423-918-275-000<br>
+      &copy; 2025 Freshella Market Place. All rights reserved.
+    </div>
+  </footer>
+  <script>
+    // Responsive dynamic total calculation (if order list is dynamic in future)
+    function calculateTotal() {
+      var total = 0;
+      var items = [
+        { name: 'Plastic Container Set', qty: 2, price: 129 },
+        { name: 'Dishwashing Liquid 500ml', qty: 1, price: 59 },
+        { name: 'Laundry Basket Large', qty: 1, price: 149 }
+      ];
+      items.forEach(function(item) {
+        total += item.price * item.qty;
+      });
+      document.getElementById('order-total').textContent = '₱' + total.toFixed(2);
+    }
+    calculateTotal();
+
+    // Form submission logic and confirmation display
+    document.getElementById('customer-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('customer-section').style.display = 'none';
+      document.getElementById('confirmation-section').style.display = 'block';
+      setTimeout(function() {
+        document.getElementById('payment-instructions').style.display = 'block';
+      }, 2500);
+      window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+    });
+  </script>
+</body>
+</html>
