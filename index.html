@@ -7,8 +7,11 @@
   <meta name="description" content="Freshella Market Place – Puerto Princesa’s Choice for Affordable Household Goods. Shop kitchen essentials, cleaning products, organizers, and more.">
   <meta name="keywords" content="Freshella, household goods, Puerto Princesa, Palawan, market, home essentials, cleaning, organization">
   <meta name="author" content="Freshella Market Place">
-  <link rel="icon" type="images/png" href="images/LOGO.png">
+  <link rel="icon" type="image/png" href="assets/favicon-v2.png">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Nunito:400,700|Quicksand:400,700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #516e33;
@@ -391,11 +394,12 @@
       line-height: 1.7;
     }
   </style>
+  <link rel="stylesheet" href="polish.css">
 </head>
 <body>
   <header>
     <div class="logo-wrapper">
-      <img src="images/LOGO.png" alt="Freshella Market Place Logo" class="logo-img" />
+      <img src="assets/logo-generated-v2.webp" alt="Freshella Market Place Logo" class="logo-img" />
       <div class="logo-text">FRESHELLA</div>
       <div class="logo-sub">MARKET PLACE</div>
     </div>
@@ -409,6 +413,7 @@
   </header>
   <main class="container">
     <section id="home" class="hero">
+<div class="freshella-hero-copy">
       <h2>Welcome to Freshella Market Place – Puerto Princesa’s Choice for Affordable Household Goods</h2>
       <p>
         At Freshella Market Place, we make home living easy, budget-friendly, and local. Located in the heart of Barangay Maunlad, Puerto Princesa City, our store brings together a curated collection of quality household products, all at prices that fit the Filipino family’s budget.<br>
@@ -416,7 +421,17 @@
       </p>
       <div class="tagline">🧺 Dito sa Freshella, presyong abot-kamay, kalidad ay tunay.</div>
       <p>Visit us today and discover why Freshella is the go-to tindahan for many homes in Palawan!</p>
-    </section>
+    
+<a class="freshella-shop-link" href="#products">Explore home essentials <span aria-hidden="true">↗</span></a>
+</div>
+<div class="hero-media-wrap"><figure class="refresh-hero-media refresh-hero-media-0"><img src="assets/hero-generated-v2.webp" alt="Illustrative coastal household essentials arrangement" width="1536" height="1024" fetchpriority="high" decoding="async"></figure></div>
+</section>
+    <div class="trust-bar">
+      <div class="trust-item"><span>🚚</span>Same-day pickup</div>
+      <div class="trust-item"><span>🏘️</span>Serving Puerto Princesa since 2021</div>
+      <div class="trust-item"><span>💳</span>Cash, GCash &amp; bank transfer</div>
+      <div class="trust-item"><span>🌿</span>Reusable eco-bags available</div>
+    </div>
     <section id="about">
       <h2>About Us</h2>
       <p>Locally Grown, Family-Owned, Community-Focused</p>
@@ -426,20 +441,20 @@
       </p>
       <div class="about-values">
         <div class="value-card">
-          <span>💡</span>
-          Practical Living
+          <span class="vc-num">01</span>
+          <div class="vc-text"><strong>Practical Living</strong><em>💡 Everyday goods that make home life easier</em></div>
         </div>
         <div class="value-card">
-          <span>🤝</span>
-          Integrity & Fair Pricing
+          <span class="vc-num">02</span>
+          <div class="vc-text"><strong>Integrity &amp; Fair Pricing</strong><em>🤝 Honest prices, no hidden mark-ups</em></div>
         </div>
         <div class="value-card">
-          <span>🌿</span>
-          Eco-conscious & Sustainable Choices
+          <span class="vc-num">03</span>
+          <div class="vc-text"><strong>Eco-conscious Choices</strong><em>🌿 Sustainable picks for your household</em></div>
         </div>
         <div class="value-card">
-          <span>🏡</span>
-          Service with a Heart
+          <span class="vc-num">04</span>
+          <div class="vc-text"><strong>Service with a Heart</strong><em>🏡 Palawan hospitality, every visit</em></div>
         </div>
       </div>
       <p style="margin-top:1.2rem;">
@@ -451,42 +466,44 @@
       <p>Practical Finds for Every Filipino Home</p>
       <div class="products-grid">
         <div class="product-card">
-          <img src="images/Pictures1.png" alt="Plastic Container Set" />
-          <h3>Plastic Container Set</h3>
-          <p>Stylish and durable containers for all your kitchen needs.</p>
-          <div class="product-meta">Qty: 10 | Price: ₱129.00</div>
-          <button onclick="addToCart('Plastic Container Set', 129.00)">Add to Cart</button>
+          <div class="pc-img"><img src="assets/product-1-optimized.webp" alt="Plastic Container Set" /></div>
+          <div class="pc-info">
+            <h3>Plastic Container Set</h3>
+            <p>Stylish and durable containers for all your kitchen needs.</p>
+            <div class="product-meta">Qty: 10 | Price: ₱129.00</div>
+            <button onclick="addToCart('Plastic Container Set', 129.00)">Add to Cart</button>
+          </div>
         </div>
         <div class="product-card">
-          <img src="images/Pictures2.png" alt="Dishwashing Liquid 500ml" />
+          <div class="pc-img"><img src="assets/product-2-optimized.webp" alt="Dishwashing Liquid 500ml" /></div>
           <h3>Dishwashing Liquid 500ml</h3>
           <p>Powerful cleaning, gentle on hands. Trusted by local homes.</p>
           <div class="product-meta">Qty: 6 | Price: ₱59.00</div>
           <button onclick="addToCart('Dishwashing Liquid 500ml', 59.00)">Add to Cart</button>
         </div>
         <div class="product-card">
-          <img src="images/Pictures3.png" alt="Storage Box Medium" />
+          <div class="pc-img"><img src="assets/product-3-optimized.webp" alt="Storage Box Medium" /></div>
           <h3>Storage Box Medium</h3>
           <p>Organize your space with this stackable, sturdy storage box.</p>
           <div class="product-meta">Qty: 8 | Price: ₱199.00</div>
           <button onclick="addToCart('Storage Box Medium', 199.00)">Add to Cart</button>
         </div>
         <div class="product-card">
-          <img src="images/Pictures4.png" alt="LED Bulb 9W" />
+          <div class="pc-img"><img src="assets/led-bulb-generated-v2.webp" alt="Illustrative photograph of an unbranded LED bulb" /></div>
           <h3>LED Bulb 9W</h3>
           <p>Bright, energy-saving LED bulbs for your home.</p>
           <div class="product-meta">Qty: 15 | Price: ₱75.00</div>
           <button onclick="addToCart('LED Bulb 9W', 75.00)">Add to Cart</button>
         </div>
         <div class="product-card">
-          <img src="images/Pictures5.png" alt="Laundry Basket Large" />
+          <div class="pc-img"><img src="assets/product-5-optimized.webp" alt="Laundry Basket Large" /></div>
           <h3>Laundry Basket Large</h3>
           <p>Spacious, lightweight basket for easy laundry days.</p>
           <div class="product-meta">Qty: 5 | Price: ₱149.00</div>
           <button onclick="addToCart('Laundry Basket Large', 149.00)">Add to Cart</button>
         </div>
         <div class="product-card">
-          <img src="images/Pictures6.png" alt="Broom & Mop Set" />
+          <div class="pc-img"><img src="assets/product-6-optimized.webp" alt="Broom & Mop Set" /></div>
           <h3>Broom & Mop Set</h3>
           <p>Complete cleaning set for spotless floors.</p>
           <div class="product-meta">Qty: 12 | Price: ₱179.00</div>
@@ -517,17 +534,17 @@
         <div>
           <strong>Address:</strong><br>
           #25 Ilang-Ilang Street, Barangay Maunlad,<br>
-          Puerto Princesa City, Palawan, 5300, Philippines
+          Puerto Princesa City, Palawan, Region IV-B, 5300, Philippines
         </div>
         <div>
           <strong>Phone:</strong><br>
           <a href="tel:+639275648319">+63 927 564 8319</a><br>
           <strong>Email:</strong><br>
-          <a href="mailto:contact@freshellamarketplace.com">contact@freshellamarketplace.com</a>
+          <a href="mailto:hello@freshellamarket.site">hello@freshellamarket.site</a>
         </div>
         <div>
           <strong>Website:</strong><br>
-          <a href="http://www.freshellamarketplace.com">www.freshellamarketplace.com</a>
+          <a href="https://freshellamarket.site">freshellamarket.site</a>
         </div>
         <div>
           <strong>Operating Hours:</strong><br>
@@ -558,16 +575,24 @@
     </section>
     <section id="faq">
       <h2>Frequently Asked Questions</h2>
-      <dl class="faq-list">
-        <dt>Q: Do you deliver around Puerto Princesa?</dt>
-        <dd>A: For now, we offer pickup and limited delivery within Brgy. Maunlad. We plan to expand delivery to nearby barangays soon.</dd>
-        <dt>Q: Can I reserve items ahead of time?</dt>
-        <dd>A: Yes! Just text or call us to reserve. Pick-up is available same day.</dd>
-        <dt>Q: Do you accept GCash?</dt>
-        <dd>A: Yes! We accept GCash, Maya, and bank transfers. We also accept cash and card payments in-store.</dd>
-        <dt>Q: Are your products imported or local?</dt>
-        <dd>A: We sell both. We prioritize local Filipino-made brands, but also carry trusted imported items.</dd>
-      </dl>
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>Do you deliver around Puerto Princesa?</summary>
+          <p>For now, we offer pickup and limited delivery within Brgy. Maunlad. We plan to expand delivery to nearby barangays soon.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I reserve items ahead of time?</summary>
+          <p>Yes! Just text or call us to reserve. Pick-up is available same day.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do you accept GCash?</summary>
+          <p>Yes! We accept GCash, Maya, and bank transfers. We also accept cash and card payments in-store.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Are your products imported or local?</summary>
+          <p>We sell both. We prioritize local Filipino-made brands, but also carry trusted imported items.</p>
+        </details>
+      </div>
     </section>
   </main>
   <footer>
@@ -578,8 +603,9 @@
     </div>
     <div class="footer-meta">
       <strong>Freshella Market Place</strong> &mdash; Household Goods Retailer<br>
-      #25 Ilang-Ilang Street, Barangay Maunlad, Puerto Princesa City, Palawan, 5300, Philippines<br>
-      Phone: +63 927 564 8319 &nbsp;|&nbsp; Email: contact@freshellamarketplace.com<br>
+      Owner: Freshel Kate M. Embuedo<br>
+      #25 Ilang-Ilang Street, Barangay Maunlad, Puerto Princesa City, Palawan, Region IV-B, 5300, Philippines<br>
+      Phone: +63 927 564 8319 &nbsp;|&nbsp; Email: hello@freshellamarket.site<br>
       Business Hours: Monday to Saturday, 8:00 AM – 6:00 PM<br>
       DTI Cert. No. 091547386 &nbsp;&nbsp; VAT Reg. TIN: 528-964-310-000<br>
       &copy; 2025 Freshella Market Place. All rights reserved.
